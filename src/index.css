@@ -46,7 +46,7 @@ form button{
   flex:3;
   border: none;
   outline: none;
-  border-bottom: 1px solid #555;
+  border: 1px solid #555;
   margin: 0 5px;
   color: #ccc;
   letter-spacing: 2px;
