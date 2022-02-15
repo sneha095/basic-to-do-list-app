@@ -16,7 +16,7 @@ const handleCheckAll = () => {
 }
 
 const newTodosComplete = () => {
-  return todos.filter(todo => todos.complete === false)
+  return todos.filter(todos => todos.complete === false)
 }
 
  const deleteToDo = () => {
