@@ -1,14 +1,44 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
+import { DataContext } from './DataProvider'
 
 export default function Footer() {
+const [checkAll, setCheckAll]= useState(false)
+const [todos, setTodos] = useContext(DataContext)
+
+const handleCheckAll = () => {
+  const newTodos = [...todos]
+  newTodos.forEach(todo =>{
+    todo.complete = !checkAll
+  })
+
+  setTodos(newTodos)
+  setCheckAll(!checkAll)
+}
+
+const newTodosComplete = () => {
+  return todos.filter(todo => todos.complete === false)
+}
+
+ const deleteToDo = () => {
+   setTodos(newTodosComplete())
+   setCheckAll(false);
+ }
+
+ 
   return (
-    <div><div className="row">
-    <label htmlFor="all">
-      <input type="checkbox" name="all" id="all"/>
-      ALL
-    </label>
-    <p>you have 0 to do</p>
-    <button id="delete">Delete</button>
-  </div></div>
-  )
+    <>
+        {
+            todos.length === 0 ? <h2>Congratulations! Nothings To Do</h2> 
+                :  <div className="row">
+                    <label htmlFor="all">
+                        <input type="checkbox" name="all" id="all"
+                        onChange={handleCheckAll} checked={checkAll} />
+                        ALL
+                    </label>
+                    <p>You have {newTodosComplete().length} to do</p>
+                    <button id="delete" onClick={deleteToDo}>Delete</button>
+                </div>
+        }
+        </>
+    )
 }
