@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Footer from "./components/Footer";
+import FormInput from "./components/FormInput";
+import List from "./components/List";
+import {DataProvider} from "./components/DataProvider";
+import ToDoPic from './Images/check_boxes.svg'
 
 function App() {
+
   return (
+    <DataProvider>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <link href="/index.css" rel="stylesheet"/>
+      <h1>To Do List</h1>
+      <FormInput></FormInput>
+      <List></List>
+      
+      <Footer></Footer>
+      <div>
+      <img className="hero-img" src={ToDoPic}/>
+      </div>
     </div>
+    </DataProvider>
   );
 }
 
