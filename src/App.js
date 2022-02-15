@@ -17,7 +17,7 @@ function App() {
       
       <Footer></Footer>
       <div>
-      <img className="hero-img" src={ToDoPic}/>
+      <img className="hero-img" src={ToDoPic} alt=""/>
       </div>
     </div>
     </DataProvider>
